@@ -1,9 +1,6 @@
 package com.pedidos.pedidos.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -17,4 +14,7 @@ public class Pedidos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String descricao;
+    @ManyToOne
+    @JoinColumn(name = "clientes_id")
+    private Clientes clientes;
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/pedidos")
 public class PedidosController {
     @Autowired
     private PedidosService pedidosService;
@@ -20,9 +20,9 @@ public class PedidosController {
         PedidosDTO salvo = pedidosService.salvar(pedidosDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(salvo);
     }
-
     @GetMapping
     public List<PedidosDTO> listar() {
+
         return pedidosService.listarPedidos();
     }
 }
