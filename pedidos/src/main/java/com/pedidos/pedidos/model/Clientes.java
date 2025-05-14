@@ -1,20 +1,19 @@
-package com.pedidos.pedidos.model.entity;
+package com.pedidos.pedidos.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Getter;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
 @Entity
-@Getter
-@Setter
+@Data
 @RequiredArgsConstructor
-public class Pedidos {
+public class Clientes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String descricao;
+    private String nome;
+    private String email;
 }
