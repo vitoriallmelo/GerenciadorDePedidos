@@ -1,5 +1,7 @@
 package com.pedidos.pedidos.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +17,8 @@ public class Pedidos {
     private Long id;
     private String descricao;
     @ManyToOne
-    @JoinColumn(name = "clientes_id")
+    @JoinColumn(nullable = false, name = "clientes_id")
+    @JsonIdentityReference(alwaysAsId = true) //receber clientes apenas com o id
+    @JsonBackReference  //controle da serialização: não serializa
     private Clientes clientes;
 }

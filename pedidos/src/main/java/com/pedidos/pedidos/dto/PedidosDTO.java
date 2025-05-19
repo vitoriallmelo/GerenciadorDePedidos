@@ -11,9 +11,9 @@ public class PedidosDTO {
     private String descricao;
     private Clientes clientesDTO;
 
-    public PedidosDTO(String descricao, Clientes clientes) {
+    public PedidosDTO(String descricao, Clientes clientesDTO) {
         this.descricao = descricao;
-        this.clientesDTO = clientes;
+        this.clientesDTO = clientesDTO;
     }
     public Pedidos toEntity() {
         Pedidos pedidos = new Pedidos();

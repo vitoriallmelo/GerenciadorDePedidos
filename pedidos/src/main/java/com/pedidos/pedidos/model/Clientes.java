@@ -1,14 +1,17 @@
 package com.pedidos.pedidos.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
+import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
 @RequiredArgsConstructor
 public class Clientes {
     @Id
@@ -16,4 +19,7 @@ public class Clientes {
     private Long id;
     private String nome;
     private String email;
+    @JsonManagedReference //controle da serializacao
+    @OneToMany(mappedBy = "clientes")
+    private List<Pedidos> listaPedidos;
 }
